@@ -86,4 +86,38 @@ The first Android build, and the first iOS build for a phone, must be started by
 terminal. EAS asks then to create the Android keystore and the iOS certificate, and it keeps both.
 After that the workflow builds without questions.
 
-Not set up yet: updates sent to installed apps without a store release, and uploads to the stores.
+## Updates without a store release
+
+EAS Update sends new JavaScript to the apps people have installed. An app looks for an update when
+it starts, downloads it in the background, and runs it the next time it starts.
+
+An update reaches an app only when two things are the same for both:
+
+- **The channel.** A `preview` build takes updates from the `preview` channel, and a `production`
+  build from `production`. `eas.json` gives each build its channel.
+- **The runtime version.** Expo computes it from the native side of the app: the native modules,
+  the config plugins, the app config and `eas.json`. A change to a screen keeps it. A new native
+  dependency changes it, and then the installed apps need a new build. Nobody sets it by hand.
+  `fingerprint.config.js` says what is left out of it.
+
+To see the runtime version of your checkout:
+
+```sh
+npx expo-updates runtimeversion:resolve --platform ios
+```
+
+To publish an update to the `preview` channel:
+
+```sh
+eas update --channel preview --message "What changed"
+```
+
+Try every update on a real phone with a `preview` build before it goes further.
+
+Do not publish to `production` from your machine. An update is bundled on the machine that
+publishes it, so it takes `EXPO_PUBLIC_SERVER_URL` from that machine's `.env`. The workflow that
+publishes to `production` is not set up yet.
+
+A `development` build takes no updates. It loads its JavaScript from your machine.
+
+Not set up yet: the workflow that publishes updates, and uploads to the stores.

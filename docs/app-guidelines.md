@@ -116,6 +116,7 @@ What `mobile/` has today, which stays:
 | Sign-in | Better Auth's Expo client. The session is kept in `expo-secure-store`. |
 | Notifications | `expo-notifications`. |
 | Builds | EAS. In development it runs as a development client (`expo-dev-client`), not in Expo Go. |
+| Updates | EAS Update (`expo-updates`): new JavaScript for installed apps, without a store release. The runtime version is a fingerprint of the native side. See [mobile/README.md](../mobile/README.md). |
 | Packages | npm, with `mobile/package-lock.json`. The rest of the repository uses Bun. |
 
 What the template adds:
