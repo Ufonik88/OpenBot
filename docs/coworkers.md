@@ -80,6 +80,22 @@ same Bot stay separate.
 Each conversation routes through a channel-local proxy agent id, pinned to that channel's thread id,
 then forwards to the Bot's runtime id.
 
+### Group conversations
+
+Choose two or more Bots in **To:** on the new-conversation screen and send the first message to start
+a group. The Bots answer in the order chosen; address one with `@Name`.
+
+To share it, open the group and press the people count in its header. In **People in this group**,
+search for someone in the same organization by name or email and select them. They must already have
+signed in. Everyone in the group sees the whole transcript, and every Bot answers them.
+
+There are no read-only or editor roles. Every member can read, send messages and add other members.
+Anyone can leave; only the person who started the group can remove someone else, and the starter
+cannot leave while other members remain.
+
+A group conversation is separate from an Admin team or directory group, which control access to Bots
+and settings.
+
 ## Deleting and hiding
 
 Deleting is soft. The Bot stops running, but its existing conversations remain readable for their members and restore as tombstones.
