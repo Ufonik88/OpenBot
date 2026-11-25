@@ -18,6 +18,6 @@ export const REGIONS = [
 
 /** Files the generator writes whole. */
 export const WHOLE_FILES = [
-  // The phone app, which builds from mobile/ alone and can't import a workspace package.
+  // OpenBot Mobile, which builds from mobile/ alone and can't import a workspace package.
   "mobile/src/scheme.ts",
 ] as const;

@@ -88,7 +88,7 @@ export function fillRegions(text: string, file: string) {
   return out.join("\n");
 }
 
-/** The phone app's copy: hex, since React Native draws no `oklch()`. */
+/** OpenBot Mobile's copy: hex, since React Native draws no `oklch()`. */
 function mobileScheme() {
   const palette = (mode: Mode) =>
     TOKENS.map(

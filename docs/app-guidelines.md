@@ -1,6 +1,6 @@
 # App guidelines
 
-What we have agreed about OpenBot's apps: the phone app (`mobile/`), and the web app and OpenBot
+What we have agreed about OpenBot's apps: OpenBot Mobile (`mobile/`), and the web app and OpenBot
 Desktop (`app/`, `desktop/`). Read the part for the app you work on before you plan a screen or a
 feature for it.
 
@@ -53,7 +53,7 @@ copy, and the copies are written, never edited:
 | `app/src/theme.css` (the web app, and the Recorder's pages, which import it) | CSS custom properties, light in `:root` and dark in `.dark` |
 | `desktop/src/styles.css`, `desktop/src-tauri/src/connected/sign_in.rs` (OpenBot Desktop's setup window and sign-in page) | CSS custom properties, the tokens each uses |
 | `desktop/src-tauri/src/first_paint.rs` (the window's color before the page draws) | RGB |
-| `mobile/src/scheme.ts` (the phone app) | Hex, since React Native draws no `oklch()` |
+| `mobile/src/scheme.ts` (OpenBot Mobile) | Hex, since React Native draws no `oklch()` |
 
 To change a color: change it in `tokens/src/scheme.ts`, run `bun run tokens:generate`, and commit
 the scheme with every copy it rewrites. A copy inside a hand-written file sits between two marker
@@ -73,35 +73,35 @@ Two places don't keep these rules yet. Don't add to either:
 - A few web app files still draw with Tailwind's palette: decorative tones in onboarding, a
   sidebar badge, a call button. The test lists them, and the list only gets shorter. Move a file's
   colors to tokens and take it off the list.
-- The phone app's `src/colors.ts` takes its colors from the scheme but one: a blue for a tappable
+- OpenBot Mobile's `src/colors.ts` takes its colors from the scheme but one: a blue for a tappable
   word. The file goes as the screens move to the stack below.
 
-## The phone app
+## OpenBot Mobile
 
 ### It is not a clone of the desktop app
 
-The phone app doesn't have to do everything the web app and OpenBot Desktop do. A screen on the
+OpenBot Mobile doesn't have to do everything the web app and OpenBot Desktop do. A screen on the
 desktop is not a reason to build the same screen on the phone.
 
 ### For launch: the core Bot experience
 
-For launch, the phone app focuses on three things:
+For launch, OpenBot Mobile focuses on three things:
 
 - Bot screens
 - Conversations
 - Routines
 
-Before you start work on the phone app, check that it is part of one of the three. If it isn't, it
+Before you start work on OpenBot Mobile, check that it is part of one of the three. If it isn't, it
 is not launch work: raise it before you build it.
 
 ### A Bot's computer is a tool call
 
-For now the phone app has no Computer screen. When a Bot uses its computer, the conversation shows
+For now OpenBot Mobile has no Computer screen. When a Bot uses its computer, the conversation shows
 it as a tool call. The Computer screen `mobile/` has today is not part of launch.
 
 ### The stack
 
-The phone app's stack is what `mobile/` has today, plus the styling and components of
+OpenBot Mobile's stack is what `mobile/` has today, plus the styling and components of
 [Better-T-Stack's native Uniwind template](https://www.better-t-stack.dev/new?fe-w=none&fe-n=native-uniwind&rt=none&be=none&api=none&db=none&orm=none&au=none&add=none).
 That template has no backend, no API layer, no database and no sign-in of its own, because ours
 stay.
